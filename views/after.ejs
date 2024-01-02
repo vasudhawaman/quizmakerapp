@@ -1,0 +1,28 @@
+<%- include ('partials/header.ejs'); -%>
+<link rel="stylesheet"  type="text/css" href="styles.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-bar-toggler-icon"><h3 id="mid">QuizApp</h3></span>
+    <a class="nav-link" href="/login">Log in</a>
+    <a class="nav-link" href="/signup">Sign up</a>
+    
+  </nav>
+ 
+  <form action="/create" method="post">
+    <div class="mb-3" id="coq">Create your own quiz</div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title of Quiz</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+      <input type="hidden" name="userID" value="<%=userID%>" />
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Number of questions</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" name="qnum" min="1">
+    </div>
+    <input type="submit" class="btn btn-primary" />
+  </form>
+</body>
+</html>
+

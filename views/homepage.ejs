@@ -1,0 +1,22 @@
+<%- include ('after.ejs'); -%>
+<% if(locals.error) {%> 
+  <div class="mb-3"><%=error%></div>
+<% } %>
+<div class="mb-3" id="taq">TAKE A QUIZ!!</div>
+
+<% if(locals.quiz) {%>
+   <% quiz.forEach(function(item){ %>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%=item.title%></h5>
+      <span><a href="/give?user=<%=userID%>&quiz=<%=item.quiz_id%>" class="card-link">Give Quiz!</a></span>
+      
+      <a href="/delete?quiz=<%=item.quiz_id%>&user=<%=userID%>"><span class="material-symbols-outlined">
+        delete
+        </span></a>
+    </div>
+  </div>
+   <% }) %>
+
+<% } %>

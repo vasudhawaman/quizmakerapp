@@ -1,0 +1,36 @@
+<%- include ('partials/header.ejs'); -%>
+<link rel="stylesheet"  type="text/css" href="styles.css">
+</head>
+
+<body>
+<div class="container-sm">
+<form action="/quiz" method="post">
+
+  <input type="hidden" name="quizID" value="<%=quizID%>" />
+  <input type="hidden" name="qnum" value="<%=qn%>" />
+  <input type="hidden" name="userID" value="<%=userID%>" />
+  
+<% questions.forEach(function(question){ %> 
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Question</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="<%=question.q%>">
+
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Answer</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="<%=question.a%>">
+  </div>
+
+ <% }) %>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+    
+  </form>
+  <% if(locals.error) {%> 
+    <div class="mb-3"><%=error%></div>
+  <% } %>
+</div>
+</body>
+</html>
+
+

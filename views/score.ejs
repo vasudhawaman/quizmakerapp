@@ -1,0 +1,33 @@
+<%- include ('partials/header.ejs'); -%>
+<link rel="stylesheet"  type="text/css" href="styles.css">
+</head>
+
+<body>
+<h1 id="score">Your score is: <%=score%></h1>
+
+<% if(lc !==0){ %>
+    <%correct.forEach(function(correct){ %>
+       <div class="bg-success">
+        <p>
+            Question: <%=correct.q%>
+           <br> Answer: <%=correct.ans%><br>
+           <br> Your answer: <%=correct.ua%><br>
+        </p>
+       </div>
+
+    <% }) %>
+<% } %>
+<% if(lw !==0){ %>
+    <%wrong.forEach(function(wrong){ %>
+        <div class="bg-danger">
+         <p> Question: <%=wrong.q%>
+            <br> Your answer: <%=wrong.ua%><br>
+            <br> Answer: <%=wrong.ans%><br>
+         </p>
+        </div>
+    <% }) %>
+
+<% } %>
+<a href="/display?user=<%=userID%>" class="card-link">Home</a>
+</body>
+</html>
