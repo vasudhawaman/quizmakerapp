@@ -6,7 +6,7 @@ const db = new pg.Client({
    user: "postgres",
    host: "localhost",
    database:"quiz",
-   password:"12345",
+   password:"12345", //add your pgAdmin password here
    port: 5432,
 });
 db.connect();
